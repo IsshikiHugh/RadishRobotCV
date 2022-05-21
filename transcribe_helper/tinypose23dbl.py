@@ -61,7 +61,7 @@ def transcribePP23D(tJson:json):
 
 def departJsonData( datas:json, filepath:string):
     cnt = -1
-    for data in datas:
+    for data in datas.items():
         cnt+=1
         _out_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), filepath+'/{0}.json'.format(str(cnt)))
         with open(_out_file, 'w') as outfile:
