@@ -20,7 +20,7 @@ def transcribeJSON2NPY(keyPointsData_JSON:json):
         # That means we can only work while
         # there is only one person.
 
-        keypoints = data["people"][0]["pose_keypoints_2d"]
+        keypoints = data["people"][0]["pose_keypoints_3d"]
         kpNpy = toNpy(keypoints)
         outputArr.append(kpNpy)
     outputNpy = np.array(outputArr).reshape(frameNum,17,3)
