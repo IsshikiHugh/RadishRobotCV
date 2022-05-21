@@ -9,7 +9,7 @@ class Frame:
     def __init__( self, fram_name:string, data:json ) -> None:
         self.name = fram_name
         self.data = []
-        for i in range(17):
+        for i in range(18):
             self.data += data[i][:]
 
 def makeFromatFile(frames: List[Frame]):
