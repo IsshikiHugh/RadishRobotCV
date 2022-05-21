@@ -22,7 +22,7 @@ def makeFromatFile(frames: List[Frame]):
                 "pose_keypoints_2d": frame.data
             }]
         }
-    return opd
+    return json.dumps(opd)
     # outputFile = open(fileName, "w")
     # outputFile.write( json.dumps(opd) )
 
@@ -59,13 +59,14 @@ def transcribePP23D(tJson:json):
         frames.append(frame)
     return makeFromatFile(frames)
 
-def departJsonData( datas:json, filepath:string):
+def departJsonData( dataS:json, filepath:string):
     cnt = -1
+    datas = json.loads(dataS)
     for data in datas.items():
-        cnt+=1
+        cnt += 1
         _out_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), filepath+'/{0}.json'.format(str(cnt)))
         with open(_out_file, 'w') as outfile:
-            json.dump(data, outfile) 
+            json.dump(data, outfile, indent=4) 
 
 if __name__ == "__main__":
     tJson = json.load(open("t.json","r"))
