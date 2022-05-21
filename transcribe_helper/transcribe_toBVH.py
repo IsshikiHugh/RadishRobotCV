@@ -1,4 +1,4 @@
-from bvh_skeleton import coco_skeleton
+from bvh_skeleton import coco_skeleton, h36m_skeleton
 import numpy as np
 
 if __name__ == "__main__":
@@ -15,5 +15,5 @@ def preprocessingForNeck(customPose):
 
 def makeBvhWithNpyFile(customPose, output = "./output.bvh"):
     customPose = preprocessingForNeck(customPose)
-    cc_skel = coco_skeleton.COCOSkeleton()
-    cc_skel.poses2bvh(customPose, None, output)
+    h36m_skel = h36m_skeleton.COCOSkeleton()
+    h36m_skel.poses2bvh(customPose, None, output)
